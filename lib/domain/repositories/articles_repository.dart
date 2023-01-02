@@ -4,13 +4,9 @@ import 'package:user_articles/domain/models/article_model.dart';
 class ArticlesRepository {
   ArticlesRepository({required this.remoteDataSource});
 
-  final ArticlesMockedDataSource remoteDataSource;
+  final ArticlesRemoteRetrofitDataSource remoteDataSource;
 
   Future<List<ArticleModel>> getArticlesForAuthorId(int authorId) async {
-    final json = await remoteDataSource.getArticles();
-    if (json == null) {
-      return [];
-    }
-    return json.map((item) => ArticleModel.fromJson(item)).toList();
+    return remoteDataSource.getArticles();
   }
 }
