@@ -6,7 +6,7 @@ import 'package:user_articles/domain/repositories/authors_repository.dart';
 
 part 'home_state.dart';
 
-@injectable
+
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit({required this.authorsRepository}) : super(HomeState());
 
